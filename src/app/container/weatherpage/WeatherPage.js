@@ -6,7 +6,7 @@ const Weather = props => {
     <div>
         {weather[0].description}
         {<br/>}
-        {`Temperature>>>>>>>${main.temp}`}
+        {`Temperature:   ${main.temp}`}
     </div>
     );
 }
