@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
 const Weather = props => {
-    const {weather} = props;
+    const {weather, main} = props.weatherData;
     return(
-        <div>
-        {props.weatherData.toString()}
+    <div>
+        {weather[0].description}
+        {<br/>}
+        {`Temperature>>>>>>>${main.temp}`}
     </div>
     );
 }
@@ -16,10 +18,10 @@ class WeatherPage extends Component {
     }
 
     getCityWeather(cityName = '') {
-        const url = `http://api.openweathermap.org/data/2.5/weather` + `?q=${cityName}&APPID=7b1a8c03a91f5666e26dc0fa9e3b519d`;
+        const url = `http://api.openweathermap.org/data/2.5/weather` + `?q=${cityName}&APPID=KKKKKKKK`;
         fetch(url)
         .then(response => response.json())
-        .then(json => this.setState({ weatherData: JSON.stringify(json)}))
+        .then(json => this.setState({ weatherData: json}))
         .catch(err => console.error(err))
     }
 
